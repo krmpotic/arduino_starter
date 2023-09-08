@@ -44,7 +44,7 @@ void setup() {
     Serial.print(BUILD_GIT_DIRTY);
     Serial.print(" - ");
     Serial.print(cel);
-    Serial.println("°C");
+    Serial.print("°C\n");
   }
   avg_cel /= (float)init_loops;
 }
@@ -63,7 +63,7 @@ void loop() {
   Serial.print(cel);
   Serial.print("°C (");
   Serial.print(cel-avg_cel);
-  Serial.println("°C)");
+  Serial.print("°C)\n");
 
   if (cel < avg_cel + del_1) {
     digitalWrite(led_1, LOW);
