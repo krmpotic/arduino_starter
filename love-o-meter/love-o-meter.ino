@@ -22,8 +22,8 @@ float tmp36Cel(int r) {
 }
 
 void tmp36Report(int raw, float vol, float cel) {
-  Serial.print(buildgit);
-  Serial.print("TMP36 raw: ");
+  Serial.print(BUILD_GIT_SHORT);
+  Serial.print(" TMP36 raw: ");
   Serial.print(raw);
   Serial.print(", vol: ");
   Serial.print(vol);
