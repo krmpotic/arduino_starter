@@ -9,7 +9,7 @@ if [[ -n ${git_status} ]]; then
 	git_short="${git_short}*"
 fi
 
-mkdir $1/src
+mkdir $1/src 2>/dev/null
 file="$1/src/buildinfo.h"
 rm $file
 echo "/* buildinfo.sh script generated file */" > $file
