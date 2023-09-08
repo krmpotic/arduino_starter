@@ -1,6 +1,8 @@
 project := love-o-meter
+# check these with `arduino-cli board list`
 fqbn := arduino:avr:uno
 port := /dev/ttyACM0
+
 baud := 9600
 
 build: buildinfo.sh
