@@ -1,31 +1,28 @@
-color-lamp:
-	sh buildinfo.sh color-lamp
-	arduino-cli compile \
-		-p /dev/ttyACM0 \
-		-u \
-		--fqbn arduino:avr:uno \
-		--output-dir color-lamp/.build \
-		color-lamp
+project := love-o-meter
+fqbn := arduino:avr:uno
+port := /dev/ttyACM0
+baud := 9600
 
-love-o-meter: love-o-meter/love-o-meter.ino buildinfo.sh
-	sh buildinfo.sh love-o-meter
+build: buildinfo.sh
+	@echo "=== COMPILING" $(project)
+	sh buildinfo.sh $(project)
 	arduino-cli compile \
-		-p /dev/ttyACM0 \
-		-u \
-		--fqbn arduino:avr:uno \
-		--output-dir love-o-meter/.build \
-		love-o-meter
+		--fqbn $(fqbn) \
+		--output-dir $(project)/.build \
+		$(project)
 
-spaceship: spaceship/spaceship.ino
-	arduino-cli compile \
-		-p /dev/ttyACM0 \
-		-u \
-		--fqbn arduino:avr:uno \
-		--output-dir spaceship/.build \
-		spaceship
+upload:
+	@echo "=== UPLOADING" $(project)
+	arduino-cli upload \
+		--fqbn $(fqbn) \
+		-p $(port) \
+		--input-dir $(project)/.build
+
+clean:
+	rm -rf $(project)/.build
 
 monitor:
-	stty -F /dev/ttyACM0 9600
-	cat /dev/ttyACM0
+	stty -F $(port) $(baud)
+	cat $(port)
 
-.PHONY: color-lamp love-o-meter spaceship monitor
+.PHONY: build upload clean monitor
