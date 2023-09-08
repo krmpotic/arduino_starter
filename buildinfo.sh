@@ -3,6 +3,11 @@
 date=$(date +"%y%m%d-%H:%M")
 git_short=$(git rev-parse --short=0 HEAD)
 git_dirty=$(git describe --always --dirty)
+git_status=$(git status --porcelain $1)
+
+if [[ -n ${git_status} ]]; then
+	git_short="${git_short}*"
+fi
 
 mkdir $1/src
 file="$1/src/buildinfo.h"

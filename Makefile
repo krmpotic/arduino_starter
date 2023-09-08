@@ -1,3 +1,12 @@
+color-lamp:
+	sh buildinfo.sh color-lamp
+	arduino-cli compile \
+		-p /dev/ttyACM0 \
+		-u \
+		--fqbn arduino:avr:uno \
+		--output-dir color-lamp/.build \
+		color-lamp
+
 love-o-meter: love-o-meter/love-o-meter.ino buildinfo.sh
 	sh buildinfo.sh love-o-meter
 	arduino-cli compile \
@@ -19,4 +28,4 @@ monitor:
 	stty -F /dev/ttyACM0 9600
 	cat /dev/ttyACM0
 
-.PHONY: love-o-meter spaceship monitor
+.PHONY: color-lamp love-o-meter spaceship monitor
