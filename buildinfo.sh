@@ -4,7 +4,8 @@ date=$(date +"%y%m%d-%H:%M")
 git_short=$(git rev-parse --short=0 HEAD)
 git_dirty=$(git describe --always --dirty)
 
-file="$1/buildinfo.h"
+mkdir $1/src
+file="$1/src/buildinfo.h"
 rm $file
 echo "/* buildinfo.sh script generated file */" > $file
 echo "#define BUILD_TIME \"${date}\"" > $file

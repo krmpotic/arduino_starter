@@ -9,4 +9,4 @@ monitor:
 	stty -F /dev/ttyACM0 9600
 	cat /dev/ttyACM0
 
-.PHONY: monitor
+.PHONY: love-o-meter spaceship monitor
