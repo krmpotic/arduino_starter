@@ -5,15 +5,17 @@
 #define DELAY_MS 20
 #define SERVO 9
 
-Server servo;
+Servo sm;
 
 int pot;
 int ang;
 
 void setup() {
 	Serial.begin(BAUD);
+	Serial.print("MOOD-CUE");
+	Serial.print("\n");
 
-	servo.attach(SERVO);
+	sm.attach(SERVO);
 }
 
 void loop() {
@@ -25,6 +27,6 @@ void loop() {
 	Serial.print(ang);
 	Serial.print("\n");
 
-	servo.write(ang);
+	sm.write(ang);
 	delay(DELAY_MS);
 }

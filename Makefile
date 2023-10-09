@@ -1,4 +1,4 @@
-project := love-o-meter
+project := light-theremin
 # check these with `arduino-cli board list`
 fqbn := arduino:avr:uno
 port := /dev/ttyACM0

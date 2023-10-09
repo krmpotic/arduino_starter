@@ -37,7 +37,8 @@ void setup() {
 
 		// header
 		Serial.print("COLOR-LAMP - ");
-		Serial.println(BUILD_GIT_DIRTY);
+		Serial.print(BUILD_GIT_DIRTY);
+		Serial.print("\n");
 	}
 }
 
@@ -47,7 +48,6 @@ void loop() {
 	sens_green = analogRead(SENS_GREEN);
 	delay(5);
 	sens_blue = analogRead(SENS_BLUE);
-	delay(5);
 
 	red = sens_red/4;
 	green = sens_green/4;
@@ -58,11 +58,11 @@ void loop() {
 	analogWrite(LED_BLUE, blue);
 
 	Serial.print(BUILD_GIT_SHORT);
-	Serial.print(" R-");
+	Serial.print("\t");
 	Serial.print(red);
-	Serial.print(" G-");
+	Serial.print("\t");
 	Serial.print(green);
-	Serial.print(" B-");
+	Serial.print("\t");
 	Serial.print(blue);
-	Serial.println();
+	Serial.print("\n");
 }
