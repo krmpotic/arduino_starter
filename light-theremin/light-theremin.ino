@@ -8,6 +8,8 @@
 #define PIN_PIEZO 8
 #define PIN_LED 13
 
+#define SERIAL_BAUD 9600
+
 int sensor;
 int sensor_low = 1023;
 int sensor_high = 0;
