@@ -13,6 +13,11 @@ int sensor_low = 1023;
 int sensor_high = 0;
 
 void setup() {
+	Serial.begin(SERIAL_BAUD);
+	Serial.print("LIGHT-THEREMIN - ");
+	Serial.print(BUILD_GIT_DIRTY);
+	Serial.print("\n");
+
 	pinMode(PIN_LED, OUTPUT);
 
 	// calibrate the sensor
@@ -29,6 +34,10 @@ void setup() {
 
 void loop() {
 	sensor = analogRead(PIN_PHOTO);
+	Serial.print("sensor: ");
+	Serial.print(sensor);
+	Serial.print("\n");
+
 	int pitch = map(sensor, sensor_low, sensor_high, PITCH_LOW, PITCH_HIGH);
 	tone(PIN_PIEZO, pitch, TONE_MS);
 	delay(LOOP_MS);
