@@ -24,6 +24,7 @@ void setup() {
 
 	pinMode(PIN_LED, OUTPUT);
 
+	Serial.print("start calibration\n");
 	// calibrate the sensor
 	digitalWrite(PIN_LED, HIGH);
 	while (millis() < CALIB_MS) {
@@ -34,6 +35,13 @@ void setup() {
 			sensor_low = sensor;
 	}
 	digitalWrite(PIN_LED, LOW);
+	Serial.print("calibrated! low: ");
+	Serial.print("low: ");
+	Serial.print(sensor_low);
+	Serial.print("high: ");
+	Serial.print(sensor_high);
+	Serial.print("\n");
+
 }
 
 void loop() {
