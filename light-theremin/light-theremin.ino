@@ -1,3 +1,5 @@
+#include "src/buildinfo.h"
+
 #define CALIB_MS 5000
 #define PITCH_LOW 50
 #define PITCH_HIGH 4000
